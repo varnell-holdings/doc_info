@@ -1,0 +1,128 @@
+MARKDOWN CHEAT SHEET FOR ADMINISTRATORS
+========================================
+
+This is a quick reference for formatting doctor preference files.
+
+
+BASIC SYNTAX:
+-------------
+
+Headers (Section Titles):
+  # Doctor Name          ← Use ONE # for the doctor's name at top
+  ## Main Section        ← Use TWO ## for main sections
+  ### Subsection         ← Use THREE ### for subsections
+
+Paragraphs:
+  Just type normally. Leave a blank line between paragraphs.
+  
+  Like this! This is a new paragraph.
+
+Bullet Lists:
+  - First item          ← Start line with dash and space
+  - Second item
+  - Third item
+
+Bold Text:
+  **This is bold**      ← Surround with double asterisks
+
+Italic Text:
+  *This is italic*      ← Surround with single asterisks
+
+
+REAL EXAMPLE:
+-------------
+
+# Dr. Sarah Johnson
+
+## Appointment Scheduling
+Prefers **30-minute slots** for all appointments. Needs 10-minute buffer 
+between patients. Never schedule before 9:30 AM.
+
+## Patient Communication
+- Phone calls preferred for urgent matters
+- Email for routine questions
+- Check messages at *9 AM, 12 PM, and 4 PM*
+
+## Coffee Preferences
+Black coffee, **no sugar**, served in a mug (not paper cup).
+
+
+COMMON MISTAKES TO AVOID:
+--------------------------
+
+✗ WRONG:  #Dr. Smith          (no space after #)
+✓ RIGHT:  # Dr. Smith
+
+✗ WRONG:  -No space           (no space after dash)
+✓ RIGHT:  - Has space
+
+✗ WRONG:  **Bold*             (mismatched asterisks)
+✓ RIGHT:  **Bold**
+
+✗ WRONG:  ##Section           (no space after ##)
+✓ RIGHT:  ## Section
+
+
+TIPS FOR NON-TECHNICAL USERS:
+------------------------------
+
+1. Use Notepad, NOT Microsoft Word
+   (Word adds invisible formatting that breaks things)
+
+2. Keep it simple
+   (You only need headers and bullets for most things)
+
+3. Copy from existing files
+   (Easiest way to get started - just copy/paste and edit)
+
+4. Save files with .md extension
+   (Example: Dr_Smith.md, NOT Dr_Smith.txt)
+
+5. Always leave blank lines between sections
+   (Makes it more readable)
+
+
+STEP-BY-STEP EDITING:
+----------------------
+
+1. Right-click the .md file
+2. Choose "Open with" → "Notepad"
+3. Make your changes
+4. File → Save (or Ctrl+S)
+5. Close Notepad
+6. Double-click UPDATE_DOCTORS.bat
+7. Refresh your browser
+
+
+EXAMPLE SECTION TEMPLATES:
+--------------------------
+
+Copy and paste these, then fill in the details:
+
+## Appointment Scheduling
+[Describe timing, duration, and spacing preferences here]
+
+## Patient Communication
+- [How they prefer urgent contact]
+- [How they prefer routine contact]
+- [When they check messages]
+
+## Clinical Notes
+[How they like notes formatted and when they complete them]
+
+## Special Requirements
+- [Any special needs]
+- [Room preferences]
+- [Equipment needed]
+
+
+NEED MORE HELP?
+---------------
+
+See README.md for complete documentation.
+
+The most important thing to remember:
+  - Edit files in doctor_data/ folder only
+  - Use Notepad (not Word)
+  - Run UPDATE_DOCTORS.bat after editing
+  - Refresh browser to see changes

@@ -1,0 +1,216 @@
+PYTHON EXECUTION FROM D:\NOBUE - EXPLAINED
+===========================================
+
+Question: Python is on C:\, files are on D:\Nobue - will it work?
+
+Answer: YES! Here's why:
+
+
+HOW IT WORKS:
+=============
+
+When you run a batch file from D:\Nobue, here's what happens:
+
+1. You double-click: D:\Nobue\UPDATE_DOCTORS.bat
+
+2. The batch file runs this command:
+   cd /d "%~dp0"
+   
+   This changes to the batch file's own directory (D:\Nobue)
+
+3. Then it runs:
+   python convert_doctor_data.py
+   
+   - "python" is found via Windows PATH (from C:\)
+   - "convert_doctor_data.py" is found in current directory (D:\Nobue)
+
+
+TECHNICAL DETAILS:
+==================
+
+%~dp0 explained:
+-----------------
+%0      = Full path to the batch file
+%~d0    = Drive letter (D:)
+%~p0    = Path (\Nobue\)
+%~dp0   = Drive + Path (D:\Nobue\)
+
+So "cd /d %~dp0" means: "Change to D:\Nobue"
+
+
+Windows PATH explained:
+-----------------------
+When you type "python", Windows searches:
+
+1. Current directory (D:\Nobue) - Python.exe not here
+2. Directories in PATH environment variable:
+   - C:\Python311\
+   - C:\Users\YourName\AppData\Local\Programs\Python\
+   - etc.
+
+Python is found in PATH, so it runs!
+
+
+WHAT THIS MEANS FOR YOU:
+=========================
+
+✓ Python stays on C:\ (as installed)
+✓ Your app files go on D:\Nobue
+✓ Batch files automatically find both
+✓ No configuration needed!
+
+
+FILE LOCATIONS:
+===============
+
+On C:\ (System):
+----------------
+C:\Python311\python.exe          ← Python executable
+C:\Python311\Lib\                ← Python libraries
+C:\Windows\System32\cmd.exe      ← Command prompt
+
+On D:\Nobue (Your Files):
+--------------------------
+D:\Nobue\UPDATE_DOCTORS.bat      ← Batch file
+D:\Nobue\convert_doctor_data.py  ← Python script
+D:\Nobue\doctor_data\            ← Your data
+D:\Nobue\doctor_html\            ← Generated HTML
+
+
+EXECUTION FLOW:
+===============
+
+Step-by-step when you run UPDATE_DOCTORS.bat:
+
+1. User double-clicks: D:\Nobue\UPDATE_DOCTORS.bat
+   
+2. Windows starts cmd.exe (from C:\Windows\System32\)
+
+3. Batch file runs: cd /d D:\Nobue
+
+4. Working directory is now: D:\Nobue
+
+5. Batch file runs: python convert_doctor_data.py
+
+6. Windows finds python.exe in PATH (on C:\)
+
+7. Python runs convert_doctor_data.py (from D:\Nobue)
+
+8. Script reads: D:\Nobue\doctor_data\*.md
+
+9. Script writes: D:\Nobue\doctor_html\*.html
+
+10. Done!
+
+
+WHAT IF PYTHON ISN'T IN PATH?
+==============================
+
+If typing "python" doesn't work, you can specify full path:
+
+In UPDATE_DOCTORS.bat, change:
+   python convert_doctor_data.py
+
+To:
+   C:\Python311\python.exe convert_doctor_data.py
+
+Or:
+   C:\Users\%USERNAME%\AppData\Local\Programs\Python\Python311\python.exe convert_doctor_data.py
+
+
+HOW TO CHECK IF PYTHON IS IN PATH:
+===================================
+
+1. Press Win+R
+2. Type: cmd
+3. Press Enter
+4. Type: python --version
+5. Press Enter
+
+If you see: "Python 3.x.x" → Python IS in PATH ✓
+If you see: "'python' is not recognized" → Python NOT in PATH ✗
+
+
+TO ADD PYTHON TO PATH:
+======================
+
+If Python is NOT in PATH:
+
+Option 1 - Reinstall Python:
+   1. Uninstall Python
+   2. Reinstall Python
+   3. CHECK "Add Python to PATH" during installation
+
+Option 2 - Add manually:
+   1. Search for "Environment Variables" in Windows
+   2. Click "Environment Variables"
+   3. Under "System variables", find "Path"
+   4. Click "Edit"
+   5. Click "New"
+   6. Add: C:\Python311\ (or wherever Python is installed)
+   7. Click OK, OK, OK
+   8. Restart computer
+
+
+NETWORK DRIVE CONSIDERATIONS:
+==============================
+
+Potential Issues:
+-----------------
+✗ Network drive disconnects
+✗ Permissions issues
+✗ UNC paths instead of drive letters
+
+Solutions:
+----------
+✓ Map D:\Nobue as a persistent network drive
+✓ Ensure "Reconnect at sign-in" is checked
+✓ Grant proper read/write permissions
+✓ Use UNC path if drive letter changes
+
+
+EXAMPLE UNC PATH BATCH FILE:
+=============================
+
+If D:\ isn't available, you can use UNC path:
+
+@echo off
+cd /d "\\ServerName\ShareName\Nobue"
+python convert_doctor_data.py
+pause
+
+
+TESTING:
+========
+
+To verify everything works:
+
+1. Open Command Prompt
+
+2. Type: cd /d D:\Nobue
+
+3. Type: python --version
+   (Should show Python version)
+
+4. Type: python convert_doctor_data.py
+   (Should run the script)
+
+If all these work, your batch files will work!
+
+
+SUMMARY:
+========
+
+Q: Python on C:\, files on D:\ - will it work?
+A: YES! ✓
+
+Key Points:
+-----------
+✓ Batch files use "%~dp0" to find their own location
+✓ Python is found via Windows PATH
+✓ Scripts are found in current directory
+✓ Everything works seamlessly across drives
+
+
+The batch files have been updated with "cd /d %~dp0" to ensure
+they always work correctly, regardless of where they're run from!

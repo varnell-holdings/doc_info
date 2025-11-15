@@ -1,0 +1,87 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║               DOCTOR PREFERENCES - QUICK REFERENCE            ║
+║                   (D:\Nobue Setup)                            ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+
+📍 FILE LOCATION: D:\Nobue
+
+
+🚀 TO START THE SERVER (ONE COMPUTER ONLY):
+═══════════════════════════════════════════════════════════════
+1. Go to D:\Nobue
+2. Double-click: START_NETWORK_SERVER.bat
+3. Note the IP address shown (e.g., 192.168.1.100)
+4. Keep the window open!
+
+
+🌐 TO ACCESS FROM OTHER COMPUTERS:
+═══════════════════════════════════════════════════════════════
+Open browser to: http://192.168.1.XXX:8000/doctor_preferences.html
+(Replace XXX with the server IP address)
+
+Bookmark this page for easy access!
+
+
+✏️ TO UPDATE DOCTOR INFORMATION:
+═══════════════════════════════════════════════════════════════
+1. Go to D:\Nobue\doctor_data
+2. Edit the Dr_Name.md file in Notepad
+3. Save
+4. Run D:\Nobue\UPDATE_DOCTORS.bat
+5. Refresh browser on all computers (press F5)
+
+
+➕ TO ADD A NEW DOCTOR:
+═══════════════════════════════════════════════════════════════
+1. Copy D:\Nobue\doctor_data\TEMPLATE.md
+2. Rename to Dr_NewName.md
+3. Edit the content in Notepad
+4. Save
+5. Run D:\Nobue\UPDATE_DOCTORS.bat
+6. Refresh browser - new doctor appears!
+
+
+📁 FOLDER STRUCTURE:
+═══════════════════════════════════════════════════════════════
+D:\Nobue\
+├── START_NETWORK_SERVER.bat  ← Start server
+├── UPDATE_DOCTORS.bat         ← Run after editing
+├── doctor_data\               ← Edit .md files here
+│   └── Dr_Name.md
+└── doctor_html\               ← Auto-generated
+
+
+⚠️ IMPORTANT REMINDERS:
+═══════════════════════════════════════════════════════════════
+✓ Server computer must stay on while others use the app
+✓ Only ONE computer should run the server
+✓ Always run UPDATE_DOCTORS.bat after editing
+✓ Use Notepad to edit (NOT Microsoft Word!)
+✓ File names must be: Dr_Name.md (with .md extension)
+
+
+🆘 QUICK TROUBLESHOOTING:
+═══════════════════════════════════════════════════════════════
+Can't connect from other computers?
+→ Check firewall settings on server computer
+
+Changes don't show?
+→ Did you run UPDATE_DOCTORS.bat?
+→ Did you refresh browser (F5)?
+
+Server stopped?
+→ Restart START_NETWORK_SERVER.bat on server computer
+
+IP address changed?
+→ Check the server window for new IP
+→ Update bookmarks on client computers
+
+
+📞 FOR MORE HELP:
+═══════════════════════════════════════════════════════════════
+See: SHARED_DRIVE_SETUP.txt (detailed instructions)
+See: README.md (complete documentation)
+See: MARKDOWN_GUIDE.txt (how to format files)
