@@ -70,7 +70,7 @@ Can't connect from other computers?
 
 Changes don't show?
 → Did you run UPDATE_DOCTORS.bat?
-→ Did you refresh browser (F5)?
+→ Did you refresh browser (F5)? Try ctrl-F5 also
 
 Server stopped?
 → Restart START_NETWORK_SERVER.bat on server computer
